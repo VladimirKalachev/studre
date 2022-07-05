@@ -63,5 +63,21 @@ public class CityUtils {
         return sortedCity;
     }
 
+    //преобразование списка в массив и поиск города с наибольшим количеством жителей
+    static void indexOfMaxPopulation(List<City> cities) {
+        City[] citiesArray = cities.toArray(new City[0]);
+        int max = 0;
+        int index = 0;
+        for (int i = 0; i < citiesArray.length; i++) {
+
+            if (citiesArray[i].getPopulation() > max) {
+                max = citiesArray[i].getPopulation();
+                index = i;
+            }
+        }
+        System.out.println("[" + index + "] = " + max);
+
+    }
+
 
 }
