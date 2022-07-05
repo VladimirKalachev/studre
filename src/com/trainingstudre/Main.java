@@ -16,8 +16,10 @@ public class Main {
         //print(sortCityByNameAndDistrict(parse()));
 
         //преобразование списка в массив и поиск индекса элемента с наибольшим населением
-        indexOfMaxPopulation(parse());
+        //indexOfMaxPopulation(parse());
 
+        //посдчет количества городов в регионах
+        countCities(parse());
     }
 
 }

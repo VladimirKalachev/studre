@@ -4,10 +4,8 @@ import com.trainingstudre.model.City;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CityUtils {
@@ -76,6 +74,17 @@ public class CityUtils {
             }
         }
         System.out.println("[" + index + "] = " + max);
+    }
+
+    //количество городов в регионах
+    static void countCities(List<City> cities) {
+        Map<String, Long> countedCities = cities.stream().collect(
+                Collectors.groupingBy(City::getRegion, Collectors.counting()));
+
+        for (Map.Entry<String, Long> item : countedCities.entrySet()) {
+            System.out.println(item.getKey() + " - " + item.getValue());
+        }
+
 
     }
 
