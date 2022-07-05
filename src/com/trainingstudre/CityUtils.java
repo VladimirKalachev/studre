@@ -5,8 +5,10 @@ import com.trainingstudre.model.City;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CityUtils {
 
@@ -43,5 +45,23 @@ public class CityUtils {
         scanner.close();
         return new City(name, region, district, population, foundation);
     }
+
+    //сортировка по городу
+    static List<City> sortCityByName(List<City> cities) {
+        List<City> sortedCity = cities.stream()
+                .sorted(Comparator.comparing(City::getName))
+                .collect(Collectors.toList());
+        return sortedCity;
+    }
+
+    //сортировка по городу и федеральному округу
+    static List<City> sortCityByNameAndDistrict(List<City> cities) {
+        List<City> sortedCity = cities.stream()
+                .sorted(Comparator.comparing(City::getName))
+                .sorted(Comparator.comparing(City::getDistrict))
+                .collect(Collectors.toList());
+        return sortedCity;
+    }
+
 
 }
